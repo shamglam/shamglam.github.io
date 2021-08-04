@@ -36,7 +36,7 @@
                 log(`> Records: (${message.records[0].recordType})`);
                 log(`> Records: (${message.records[0].mediaType})`);
                 const textDecoder = new TextDecoder(message.records[0].encoding);
-                log(`Text: ${textDecoder.decode(record.data)} (${record.lang})`);
+                log(`Text: ${textDecoder.decode(message.records[0].data)} (${message.records[0].lang})`);
 
 
             });
