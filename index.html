@@ -13,7 +13,8 @@
     <button id="webnfc">scan</button>
 </body>
 <script>
-    let log = console.log;
+    let log = (text) => document.getElementById('output').innerText += text;
+
     let el = document.getElementById('webnfc');
     el.addEventListener("click", async() => {
 
@@ -38,5 +39,8 @@
         }
     });
 </script>
+<div id="output">
+
+</div>
 
 </html>
