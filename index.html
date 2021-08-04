@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <button id="webnfc">scan</button>
+</body>
+<script>
+    let el = document.getElementById('webnfc');
+    el.addEventListener("click", async() => {
+
+    try {
+        const ndef = new NDEFReader();
+        await ndef.scan();
+        log("> Scan started");
+
+        ndef.addEventListener("readingerror", () => {
+            log("Argh! Cannot read data from the NFC tag. Try another one?");
+        });
+
+        ndef.addEventListener("reading", ({
+            message,
+            serialNumber
+        }) => {
+            log(`> Serial Number: ${serialNumber}`);
+            log(`> Records: (${message.records.length})`);
+        });
+    } catch (error) {
+        log("Argh! " + error);
+    }
+    });
+
+    });
+</script>
+
+</html>
