@@ -13,7 +13,7 @@
     <button id="webnfc">scan</button>
 </body>
 <script>
-    let log = (text) => document.getElementById('output').innerText += text;
+    let log = (text) => document.getElementById('output').innerText += `\n${text}`;
 
     let el = document.getElementById('webnfc');
     el.addEventListener("click", async() => {
@@ -35,6 +35,7 @@
                 log(`> Records: (${message.records.length})`);
                 log(`> Records: (${message.records[0].recordType})`);
                 log(`> Records: (${message.records[0].mediaType})`);
+                log(`> decoding`);
                 const textDecoder = new TextDecoder(message.records[0].encoding);
                 log(`Text: ${textDecoder.decode(message.records[0].data)} (${message.records[0].lang})`);
 
