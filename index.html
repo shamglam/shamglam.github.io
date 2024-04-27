@@ -35,7 +35,7 @@ let button3 = document.getElementById('button3');
 
 button1.addEventListener("click", () => {
 
-    gtag("login", {
+    gtag('event',"login", {
     method: "fake"
 });
 }
@@ -45,7 +45,7 @@ button1.addEventListener("click", () => {
 
 button2.addEventListener("click", () => {
 
-gtag("custom_event", {
+gtag('event',"custom_event", {
 whatever: "whateverfield",
 somethingelse: "somethingelse"
 });
