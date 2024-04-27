@@ -10,6 +10,9 @@
   gtag('js', new Date());
 
   gtag('config', 'G-JKTNNXEPQ7');
+
+  gtag('set', { 'campaign_name': 'Black Friday Sale' });
+
 </script>
 
     <meta charset="UTF-8">
@@ -17,11 +20,41 @@
     <title>GA4 TEST</title>
 </head>
 <body>
-    <button>CLICK</button>
-    <button>click2</button>
-    <button>CLICk3</button>
+    <button id="button1">CLICK</button>
+    <button id="button2">click2</button>
+    <button id="button3">CLICk3</button>
+
+
+
     <a href="meh.html">navigate</a>
     <a href="https://www.microsoft.com">outbound navigation</a>
+<script>
+let button1 = document.getElementById('button1');
+let button2 = document.getElementById('button2');
+let button3 = document.getElementById('button3');
 
+button1.addEventListener("click", () => {
+
+    gtag("login", {
+    method: "fake"
+});
+}
+
+);
+
+
+button2.addEventListener("click", () => {
+
+gtag("custom_event", {
+whatever: "whateverfield",
+somethingelse: "somethingelse"
+});
+}
+
+);
+
+
+
+</script>
 </body>
 </html>
