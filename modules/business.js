@@ -14,7 +14,7 @@ export function callCheckoutProcess() {
       addShipping(newObj);
       
       // Call func3 only if func2 was called
-      if (randomNum > 0.25) {
+      if (randomNum > 0.5) {
         addPaynentInfo(newObj);
 
 
@@ -39,7 +39,7 @@ export function callCheckoutProcess() {
       addToCart(newObj);
       
       // Call func3 only if func2 was called
-      if (randomNum > 0.25) {
+      if (randomNum > 0.5) {
         beginCheckout(newObj);
 
         if (randomNum > 0.5) {
