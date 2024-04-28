@@ -1,90 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <!-- Google tag (gtag.js) -->
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-JKTNNXEPQ7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKTNNXEPQ7"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-JKTNNXEPQ7');
+    gtag('config', 'G-JKTNNXEPQ7');
 
-  gtag('set', { 'campaign_name': 'Black Friday Sale' });
+    gtag('set', { 'campaign_name': 'Black Friday Sale' });
 
-</script>
+  </script>
+    <script type="module" src="modules/business.js"></script>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GA4 TEST</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GA4 TEST</title>
 </head>
+
 <body>
-    <button id="button1">CLICK</button>
-    <button id="button2">click2</button>
-    <button id="button3">CLICk3</button>
+  <button id="button1">CLICK</button>
+  <button id="button2">click2</button>
+  <button id="button3">CLICk3</button>
 
 
+  <button id="process1">proc1</button>
+  <button id="process2">proc2</button>
 
-    <a href="meh.html">navigate</a>
-    <a href="https://www.microsoft.com">outbound navigation</a>
-<script>
-let button1 = document.getElementById('button1');
-let button2 = document.getElementById('button2');
-let button3 = document.getElementById('button3');
-
-button1.addEventListener("click", () => {
-
-    gtag('event',"login", {
-    method: "fake"
-});
-}
-
-);
+  <a href="meh.html">navigate</a>
+  <a href="https://www.microsoft.com">outbound navigation</a>
 
 
-button2.addEventListener("click", () => {
+  <script type="module">
+    import { callCheckoutProcess, callCheckoutJourney } from './modules/business.js';
+    document.getElementById('process1').addEventListener('click', () => callCheckoutProcess());
+    document.getElementById('process2').addEventListener('click', () => callCheckoutJourney());
+  </script>
+  <script>
+    let button1 = document.getElementById('button1');
+    let button2 = document.getElementById('button2');
+    let button3 = document.getElementById('button3');
 
-gtag("even","custom_event", {
-whatever: "whateverfield",
-somethingelse: "somethingelse"
-});
-}
+    button1.addEventListener("click", () => {
 
-);
-
-button2.addEventListener("click", () => {
-
-
-gtag("event", "begin_checkout", {
-  currency: "USD",
-  value: 30.03,
-  coupon: "SUMMER_FUN",
-  items: [
-    {
-      item_id: "SKU_12345",
-      item_name: "Stan and Friends Tee",
-      affiliation: "Google Merchandise Store",
-      coupon: "SUMMER_FUN",
-      discount: 2.22,
-      index: 0,
-      item_brand: "Google",
-      item_category: "Apparel",
-      item_category2: "Adult",
-      item_category3: "Shirts",
-      item_category4: "Crew",
-      item_category5: "Short sleeve",
-      item_list_id: "related_products",
-      item_list_name: "Related Products",
-      item_variant: "green",
-      location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
-      price: 10.01,
-      quantity: 3
+      gtag('event', "login", {
+        method: "fake"
+      });
     }
-  ]
-});
-});
 
-</script>
+    );
+
+
+    button2.addEventListener("click", () => {
+
+      gtag("even", "custom_event", {
+        whatever: "whateverfield",
+        somethingelse: "somethingelse"
+      });
+    }
+
+    );
+
+    button2.addEventListener("click", () => {
+
+
+      gtag("event", "begin_checkout", {
+        currency: "USD",
+        value: 30.03,
+        coupon: "SUMMER_FUN",
+        items: [
+          {
+            item_id: "SKU_12345",
+            item_name: "Stan and Friends Tee",
+            affiliation: "Google Merchandise Store",
+            coupon: "SUMMER_FUN",
+            discount: 2.22,
+            index: 0,
+            item_brand: "Google",
+            item_category: "Apparel",
+            item_category2: "Adult",
+            item_category3: "Shirts",
+            item_category4: "Crew",
+            item_category5: "Short sleeve",
+            item_list_id: "related_products",
+            item_list_name: "Related Products",
+            item_variant: "green",
+            location_id: "ChIJIQBpAG2ahYAR_6128GcTUEo",
+            price: 10.01,
+            quantity: 3
+          }
+        ]
+      });
+    });
+
+  </script>
 </body>
+
 </html>
