@@ -100,18 +100,32 @@
   </script>
 
 
+<script type="importmap">
+  {
+    "imports": {
+      "preact": "https://esm.sh/preact@10.19.2",
+      "preact/": "https://esm.sh/preact@10.19.2/",
+      "htm/preact": "https://esm.sh/htm@3.1.1/preact?external=preact"
+    }
+  }
+</script>
+
 <script type="module">
-  import { h, render } from 'https://esm.sh/preact';
-  import htm from 'https://esm.sh/htm';
+  import { render } from 'preact';
+  import { useReducer } from 'preact/hooks';
+  import { html } from 'htm/preact';
 
-  // Initialize htm with Preact
-  const html = htm.bind(h);
+  export function App() {
+    const [count, add] = useReducer((a, b) => a + b, 0);
 
-  function App (props) {
-    return html`<h1>Hello ${props.name}!</h1>`;
+    return html`
+      <button onClick=${() => add(-1)}>Decrement</button>
+      <input readonly size="4" value=${count} />
+      <button onClick=${() => add(1)}>Increment</button>
+    `;
   }
 
-  render(html`<${App} name="World" />`, document.body);
+  render(html`<${App} />`, document.body);
 </script>
 </body>
 
